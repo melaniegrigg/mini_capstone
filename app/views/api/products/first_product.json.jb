@@ -1,0 +1,6 @@
+{
+  name: @first.name,
+  price: @first.price,
+  image: @first.image_url,
+  description: @first.description
+}
