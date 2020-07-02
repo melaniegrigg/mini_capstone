@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get "/first_product" => "products#first_product"
     get "/last_product" => "products#last_product"
     get "/any_product" => "products#any"
-    get "/products_all/:all_product" => "products#segment_param"
+    get "/products_all/:products" => "products#any"
+    post "/number_guess" => "products#guess"
   end
 end

@@ -20,9 +20,12 @@ class Api::ProductsController < ApplicationController
     render 'query_parameter.json.jb'
   end
 
-  def segment_param
-    product_id = params['all_product']
-    @products = Product.find_by(name: product_id)
-    render 'segment_parameter.json.jb'
+  def guess
+    params['guess']
+    correct_number = 58
+    
+
+
+    render 'guess_number.json.jb'
   end
 end
