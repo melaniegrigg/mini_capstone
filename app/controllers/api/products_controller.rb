@@ -13,4 +13,9 @@ class Api::ProductsController < ApplicationController
     @last = Product.last
     render 'last_product.json.jb'
   end
+
+  def query_param
+    @message 
+    render 'query_paramater.json.jb'
+  end
 end
