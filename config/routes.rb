@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     get "/all_products" => "products#display_all"
     get "/first_product" => "products#first_product"
     get "/last_product" => "products#last_product"
-    get "/any_product" => "products#query_param"
+    get "/any_product" => "products#any"
+    get "/products_all/:all_product" => "products#segment_param"
   end
 end
