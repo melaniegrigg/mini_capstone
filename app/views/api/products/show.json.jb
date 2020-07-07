@@ -1,7 +1,1 @@
-{
-  id: @product.id,
-  price: @product.price,
-  name: @product.name,
-  image_url: @product.image_url,
-  description: @product.description
-}
+render partial: "product.json.jb", locals: {product: @product}
