@@ -1,10 +1,18 @@
 class Api::ProductsController < ApplicationController
   def index
+    if params[:search]
       @products = Product.where("name LIKE ?", "%#{params[:search]}%")
-
-    if params [:discount] == "true"
-      @products = @products.where('price < 5)')
+    else
+      @products = Product.all
     end
+
+    @products = @products.order(:id => :desc)
+
+    # if params [:discount] == "true"
+    #   @products = @products.where("price < 5")
+    # else
+    #   @products = Product.all
+    # end
 
     if params[:sort] == "price" && params[:sort_order] == 'desc'
     @products = @products.order(:price => :desc)
@@ -23,6 +31,7 @@ class Api::ProductsController < ApplicationController
 
   def create
     @product = Product.new(
+      id: params[:id],
       name: params[:name],
       price: params[:price],
       image_url: params[:image_url],
