@@ -1,5 +1,5 @@
 class Api::ProductsController < ApplicationController
-  before_action: authenticate_admin, only[:create]
+  before_action: authenticate_admin, only [:create]
 
   def index
     @products = Product.where("name LIKE ?", "%#{params[:search]}%")
