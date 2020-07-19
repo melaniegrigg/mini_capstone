@@ -1,8 +1,14 @@
 class Api::OrdersController < ApplicationController
-  before_action: authenticate_user
+  before_action :authenticate_user
+
+  def index
+    # @orders = Order.where(user_id: current_user.id)
+    @orders = current_user.orders
+    render 'index.json.jb'
+  end
 
   def create
-    product = Product.find_by(id: params[:id])
+    product = Product.find_by(id: params[:product_id])
 
     calculated_subtotal = params[:quantity].to_i * product.price
 
